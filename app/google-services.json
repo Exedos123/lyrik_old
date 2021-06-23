@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "736177342839",
+    "project_id": "lyrika-2235f",
+    "storage_bucket": "lyrika-2235f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736177342839:android:a72aea99485770573b3972",
+        "android_client_info": {
+          "package_name": "com.lyrika"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736177342839-t3alh312f3ajgb767hkefervqll3430p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBznnYsnw_TeXvIgWdXSpJkqlQpr2FFRw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736177342839-t3alh312f3ajgb767hkefervqll3430p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
