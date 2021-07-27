@@ -15,14 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lyrika">
-        <activity android:name=".MyAccountPage" />
-
-        <activity android:name=".RegisterActivity"/>
-
-        <activity android:name=".SignUp" />
-        <activity android:name=".Song_View_page" />
-        <activity android:name=".Upload_Song" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".User_Upload_List"></activity>
+        <activity android:name=".Song_View_page"></activity>
+        <activity android:name=".MyAccountPage"></activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".Upload_Song"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -3,39 +3,47 @@ package com.lyrika;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.lyrika.DBqueries.firebaseFirestore;
+import static com.lyrika.RegisterActivity.setSignUpFragment;
 
 public class Song_View_page extends AppCompatActivity {
 
     public TextView titleView;
     private ImageView addProfileIcon, homeBtn, uploadBtn, accountBtn;
-    public TextView lyrikView;
+    public TextView lyrikView,teluguL;
     final String TAG = "L";
     private Toolbar toolbar;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    TabLayout tabLayout;
+    TabItem tabitem1,tabitem2,tabitem3;
+   ViewPager viewPager;
+    PageAdapter pageAdater;
+    private Dialog signInDialog;
+    private FirebaseUser currentUser;
+
 
 
     @Override
@@ -44,12 +52,86 @@ public class Song_View_page extends AppCompatActivity {
         setContentView(R.layout.activity_song_view_page);
         titleView = (TextView) findViewById(R.id.SongTitle);
         lyrikView = (TextView) findViewById(R.id.SongLyric);
+
+
+
+        // Dialog box
+        signInDialog = new Dialog(Song_View_page.this);
+        signInDialog.setContentView(R.layout.sign_in_dialog);
+        signInDialog.setCancelable(true);
+
+        signInDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        Button dialogSignInBtn = signInDialog.findViewById(R.id.signIn_btn);
+        Button dialogSignUpBtn = signInDialog.findViewById(R.id.signUp_btn);
+        Intent registerIntent = new Intent(Song_View_page.this, RegisterActivity.class);
+
+        dialogSignInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SignUpFragment.disableCloseBtn = true;
+                fragment_sign_in.disableCloseBtn = true;
+                signInDialog.dismiss();
+                setSignUpFragment = false;
+                startActivity(registerIntent);
+            }
+        });
+
+
+        dialogSignUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignUpFragment.disableCloseBtn = true;
+                fragment_sign_in.disableCloseBtn = true;
+                signInDialog.dismiss();
+                setSignUpFragment = true;
+                startActivity(registerIntent);
+            }
+        });
+        //Dialog box
+
        // String Tempholder = getIntent().getStringExtra("ListClick");
         toolbar = findViewById(R.id.myToolBar);
         setSupportActionBar(toolbar);
 
         toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.myToolBar);
 
+
+        tabLayout =findViewById(R.id.tabLayout);
+        tabitem1 = findViewById(R.id.tab1);
+        tabitem2 = findViewById(R.id.tab2);
+        tabitem3 = findViewById(R.id.tab3);
+        viewPager = findViewById(R.id.song_view_pager);
+
+        pageAdater=new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        //  pageAdater = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(pageAdater);
+
+
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+
+                if (tab.getPosition()==0 || tab.getPosition()==1 || tab.getPosition()==2)
+                  // viewPager.setCurrentItem(tab.getPosition());
+                     pageAdater.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
 
         // Adding App Bar Code
@@ -75,17 +157,28 @@ public class Song_View_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(currentUser == null) {
+                    signInDialog.show();
+                }else {
+                    // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+                    Intent Homeintent = new Intent(Song_View_page.this, MyAccountPage.class);
+                    startActivity(Homeintent);
+                }
 
-                Intent Homeintent = new Intent(Song_View_page.this, MyAccountPage.class);
-                startActivity(Homeintent);
 
             }
         });
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Uploadintent = new Intent(Song_View_page.this, Upload_Song.class);
-                startActivity(Uploadintent);
+                if(currentUser == null) {
+                    signInDialog.show();
+                }else {
+                    // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+                    Intent Uploadintent = new Intent(Song_View_page.this, Upload_Song.class);
+                    startActivity(Uploadintent);
+
+                }
 
 
             }
@@ -94,24 +187,25 @@ public class Song_View_page extends AppCompatActivity {
         //Appbar Code
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        firebaseFirestore.collection("Songs").document(getIntent().getStringExtra("Song_Id"))
-                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                 DocumentSnapshot documentSnapshot = task.getResult();
-
-                    titleView.setText(documentSnapshot.get("Title").toString());
-
-                    lyrikView.setText(documentSnapshot.get("Lyrik_T").toString());
-                    Toast.makeText(Song_View_page.this, "Successfully connected", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(Song_View_page.this, "Please Somthing Went wrong", Toast.LENGTH_SHORT).show();
-
-
-                }
-            }
-        });
+//        firebaseFirestore.collection("Songs").document(getIntent().getStringExtra("Song_Id"))
+//                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                if (task.isSuccessful()) {
+//                 DocumentSnapshot documentSnapshot = task.getResult();
+//
+//                    titleView.setText(documentSnapshot.get("Title").toString());
+//
+//                  //  lyrikView.setText(documentSnapshot.get("Lyrik_T").toString());
+//
+//                    Toast.makeText(Song_View_page.this, "Successfully connected", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(Song_View_page.this, "Please Somthing Went wrong", Toast.LENGTH_SHORT).show();
+//
+//
+//                }
+//            }
+//        });
 
 
         //   titleView.setText("This is "+Tempholder);
@@ -220,5 +314,10 @@ public class Song_View_page extends AppCompatActivity {
 
   */
 
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    }
 }

@@ -60,14 +60,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleSong"
-        android:visibility="gone">
+        android:visibility="visible">
 
     </Spinner>
 
     <FrameLayout
         android:id="@+id/Song_Lyric_fragment_Container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
 
 

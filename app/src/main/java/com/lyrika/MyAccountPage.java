@@ -3,14 +3,19 @@ package com.lyrika;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,23 +42,22 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.lyrika.DBqueries.firebaseFirestore;
+import static com.lyrika.MainActivity.homeListModelList;
+import static com.lyrika.MainActivity.swipeRefreshLayoutV1;
+
 
 public class MyAccountPage extends AppCompatActivity {
 
-    private Button signOutBtn;
+    private Button signOutBtn,UploadedListBtn;
     public String Fn;
     public String Em;
-
-    final String TAG="L";
     private FirebaseUser currentUser;
-    private FirebaseUser USERS;
-    private DatabaseReference reference;
-
-
-    private String userID;
-
     public TextView fullnameTextView;
     public TextView emailTextView;
+    private HomeListAdapter homeListAdapter;
+
+
 
 
     @Override
@@ -74,13 +79,29 @@ public class MyAccountPage extends AppCompatActivity {
             }
         });
 
-      /*  USERS = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("USERS");
-        userID = USERS.getUid();
+        UploadedListBtn =findViewById(R.id.UploadBtnF);
 
-*/
-    fullnameTextView = findViewById(R.id.fullname);
-       emailTextView = findViewById(R.id.email);
+
+        UploadedListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent UploadListIntent = new Intent(MyAccountPage.this,User_Upload_List.class);
+                startActivity(UploadListIntent);
+                finish();
+
+            }
+        });
+
+
+
+         fullnameTextView = findViewById(R.id.fullname);
+         emailTextView = findViewById(R.id.email);
+
+
+        homeListAdapter = new HomeListAdapter(homeListModelList);
+        homeListAdapter.notifyDataSetChanged();
+
 
 
 
@@ -102,13 +123,13 @@ public class MyAccountPage extends AppCompatActivity {
                         fullnameTextView.setText(Fn);
                         emailTextView.setText(Em);
 
-                    }
-                    else{
+                    } else {
                         String error = task.getException().getMessage();
-                        Toast.makeText(MyAccountPage.this,error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyAccountPage.this, error, Toast.LENGTH_SHORT).show();
                     }
                 }
             });
+
 
         }
 

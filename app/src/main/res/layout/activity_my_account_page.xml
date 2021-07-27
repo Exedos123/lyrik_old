@@ -23,6 +23,19 @@
             android:orientation="vertical" >
             <include layout="@layout/profile_datalayout"/>
 
+            <Button
+                android:id="@+id/UploadBtnF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#BF2121"
+                android:text="Uploaded Songs"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
 
             <Button

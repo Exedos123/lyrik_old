@@ -27,6 +27,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayDeque;
@@ -43,6 +44,7 @@ public class Upload_Song extends AppCompatActivity {
     final String TAG="L";
     private Toolbar toolbar;
     private FrameLayout frameLayout1;
+    private String userID;
 
     public static boolean Fragment_telugu = false;
 
@@ -57,12 +59,14 @@ public class Upload_Song extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_song);
         songTitle = findViewById(R.id.titleSong);
         songLyric =  findViewById(R.id.lyricSong);
+        userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         but1 =  findViewById(R.id.uplSong);
 
@@ -190,7 +194,7 @@ public class Upload_Song extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String TiSong = songTitle.getText().toString();
-                String LySongT = songLyric.getText().toString();
+                String LySongT =songLyric.getText().toString();
                 String LySongE= songLyric.getText().toString();
                 String LySongH= songLyric.getText().toString();
                 uploadSong(TiSong,LySongT,LySongE,LySongH);
@@ -266,47 +270,145 @@ public class Upload_Song extends AppCompatActivity {
     //////////////////user upload songs
 
 
-   protected void uploadSong(String tS, String tL, String lySongE, String lySongH) {
+   protected void uploadSong(String tS, String tL, String eL, String hL) {
     // Create a new user with a first, middle, and last name
     Map<String, Object> user = new HashMap<>();
     String TiSong = songTitle.getText().toString();
     String tS1 = tS;
     String tL1 = tL;
+    String tL2 = eL;
+    String tL3 = hL;
+//    String tL2 = lySongE;
+//    String tL3 = lySongH;
+       user.put(lang, tL1);
+       user.put(lang, tL2);
+       user.put(lang, tL3);
    // String tL2 = lySongE;
   //  String tL3 = lySongH;
     user.put("Title", tS1);
-    user.put("Lyrik_T", tL1);
- //   user.put("Lyrik_E", tL2);
-   // user.put("Lyrik_H", tL3);
+// user.put("Lyrik_T", tL1);
+//    user.put("Lyrik_E", tL2);
+//    user.put("Lyrik_H", tL3);
 
 
+       db.collection("USERS").document(userID).collection("myList")
+               .document(TiSong).set(user)
+               .addOnCompleteListener(new OnCompleteListener<Void>() {
+                   @Override
+                   public void onComplete(@NonNull Task<Void> task) {
 
+                       if (task.isSuccessful()) {
+                           Log.d(TAG, "DocumentSnapshot added with ID: " + TiSong);
+
+
+//                           Intent intent1 = new Intent(Upload_Song.this, MainActivity.class);
+//
+//                           startActivity(intent1);
+                       } else {
+                           String error = task.getException().getMessage();
+                           Toast.makeText(Upload_Song.this, error, Toast.LENGTH_SHORT).show();
+
+                       }
+                   }
+               });
+       db.collection("Songs")
+               .document(TiSong).set(user)
+               .addOnCompleteListener(new OnCompleteListener<Void>() {
+                   @Override
+                   public void onComplete(@NonNull Task<Void> task) {
+
+                       if (task.isSuccessful()) {
+                           Log.d(TAG, "DocumentSnapshot added with ID: " + TiSong);
+
+
+//                           Intent intent1 = new Intent(Upload_Song.this, MainActivity.class);
+//
+//                           startActivity(intent1);
+                       } else {
+                           String error = task.getException().getMessage();
+                           Toast.makeText(Upload_Song.this, error, Toast.LENGTH_SHORT).show();
+
+                       }
+                   }
+               });
 
 // Add a new document with a generated ID
-
-    db.collection("Songs")
-            .document(TiSong)
-            .set(user)
-            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-
-                    if (task.isSuccessful()) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + TiSong);
-
-
-                        Intent intent1 = new Intent(Upload_Song.this, MainActivity.class);
-
-                        startActivity(intent1);
-                    }
-                    else {
-                        String error = task.getException().getMessage();
-                        Toast.makeText(Upload_Song.this, error, Toast.LENGTH_SHORT).show();
-
-                    }
-                }
-            });
+//       if(lang == "Lyrik_T") {
+//
+//           db.collection("TeluguSongs")
+//                   .document(TiSong)
+//                   .set(user)
+//                   .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                       @Override
+//                       public void onComplete(@NonNull Task<Void> task) {
+//
+//                           if (task.isSuccessful()) {
+//                               Log.d(TAG, "DocumentSnapshot added with ID: " + TiSong);
+//
+//
+//                               Intent intent1 = new Intent(Upload_Song.this, MainActivity.class);
+//
+//                               startActivity(intent1);
+//                           } else {
+//                               String error = task.getException().getMessage();
+//                               Toast.makeText(Upload_Song.this, error, Toast.LENGTH_SHORT).show();
+//
+//                           }
+//                       }
+//                   });
+//       }
+//       if(lang == "Lyrik_E") {
+//
+//           db.collection("Songs")
+//                   .document(TiSong)
+//                   .set(user)
+//                   .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                       @Override
+//                       public void onComplete(@NonNull Task<Void> task) {
+//
+//                           if (task.isSuccessful()) {
+//                               Log.d(TAG, "DocumentSnapshot added with ID: " + TiSong);
+//
+//
+//                               Intent intent1 = new Intent(Upload_Song.this, MainActivity.class);
+//
+//                               startActivity(intent1);
+//                           } else {
+//                               String error = task.getException().getMessage();
+//                               Toast.makeText(Upload_Song.this, error, Toast.LENGTH_SHORT).show();
+//
+//                           }
+//                       }
+//                   });
+//       }
+//
+//        if(lang == "Lyrik_H") {
+//
+//            db.collection("HindiSongs")
+//                    .document(TiSong)
+//                    .set(user)
+//                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//
+//                            if (task.isSuccessful()) {
+//                                Log.d(TAG, "DocumentSnapshot added with ID: " + TiSong);
+//
+//
+//                                Intent intent1 = new Intent(Upload_Song.this, MainActivity.class);
+//
+//                                startActivity(intent1);
+//                            } else {
+//                                String error = task.getException().getMessage();
+//                                Toast.makeText(Upload_Song.this, error, Toast.LENGTH_SHORT).show();
+//
+//                            }
+//                        }
+//                    });
+//        }
     }
+
+
 
 
     /*    db.collection("users")

@@ -112,9 +112,7 @@ public class MainActivity extends AppCompatActivity {
         swipeRefreshLayoutV1 = findViewById(R.id.V1_refresh_layout);
         noInternetConnection = findViewById(R.id.no_internet_connection);
         retryBtn = findViewById(R.id.retry_btn);
-        swipeRefreshLayoutV1 = findViewById(R.id.V1_refresh_layout);
-
-        connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+         connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         networkInfo = connectivityManager.getActiveNetworkInfo();
 
 
