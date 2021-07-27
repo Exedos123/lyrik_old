@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/toolbar" />
+
 
     <SearchView
         android:id="@+id/songSearch"
         android:layout_width="329dp"
         android:layout_height="58dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintTop_toBottomOf="@+id/include2" />
 
     <EditText
         android:id="@+id/titleSong"
         android:layout_width="210dp"
         android:layout_height="40dp"
-        android:text="Enter the Title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/songSearch"
-        app:layout_constraintVertical_bias="0.076" />
+        android:layout_marginTop="20dp"
+        android:hint="Enter the Title"
+        app:layout_constraintEnd_toEndOf="@+id/songSearch"
+        app:layout_constraintStart_toStartOf="@+id/songSearch"
+        app:layout_constraintTop_toBottomOf="@+id/songSearch" />
 
     <EditText
         android:id="@+id/lyricSong"
         android:layout_width="335dp"
         android:layout_height="312dp"
-        android:text="Plase copy and paste song"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:hint="Plase copy and paste song"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleSong" />
+        app:layout_constraintTop_toBottomOf="@+id/Spinner" />
 
     <Button
         android:id="@+id/uplSong"
@@ -46,5 +48,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lyricSong" />
+
+    <Spinner
+        android:id="@+id/Spinner"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/titleSong"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/titleSong"
+        app:layout_constraintTop_toBottomOf="@+id/titleSong">
+
+    </Spinner>
+    <FrameLayout
+        android:id="@+id/Song_Lyric_fragment_Container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

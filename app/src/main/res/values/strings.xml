@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">lyrika</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+
+    <string-array name="Select_language">
+        <item>Select_language</item>
+        <item>Telugu</item>
+        <item>English</item>
+        <item>Hindi</item>
+
+    </string-array>
+
 </resources>

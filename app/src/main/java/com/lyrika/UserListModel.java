@@ -1,2 +1,4 @@
-package com.lyrika;public class UserListModel {
+package com.lyrika;
+
+public class UserListModel {
 }
