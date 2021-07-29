@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<!--
     <include
         android:id="@+id/include2"
         layout="@layout/toolbar" />
@@ -47,7 +47,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyricSong" />
+        app:layout_constraintTop_toBottomOf="@+id/lyricSong"
+        android:backgroundTint="#5E5252"/>
 
     <Spinner
         android:id="@+id/Spinner"
@@ -60,6 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleSong">
 
     </Spinner>
+    -->
     <FrameLayout
         android:id="@+id/Song_Lyric_fragment_Container"
         android:layout_width="match_parent"
