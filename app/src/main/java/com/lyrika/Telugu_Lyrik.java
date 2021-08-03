@@ -33,14 +33,12 @@ public class Telugu_Lyrik extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_telugu__lyrik, container, false);
+
         NextBtn = view.findViewById(R.id.Next_1);
         parentFrameLayout = getActivity().findViewById(R.id.Song_Lyric_fragment_Container);
-        NextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setFragment(new English_Lyrik());
-            }
-        });
+
+
+        NextBtn.setOnClickListener(view1 -> setFragment(new English_Lyrik()));
         return view;
     }
 

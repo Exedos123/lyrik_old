@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -28,69 +29,100 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Hindi_Lyrik#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Hindi_Lyrik extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    public ImageView homeBtn;
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public Hindi_Lyrik() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Hinid_Lyrik.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Hindi_Lyrik newInstance(String param1, String param2) {
-        Hindi_Lyrik fragment = new Hindi_Lyrik();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    private Button NextBtn3;
+    FrameLayout parentFrameLayout;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public EditText songTitle;
+    public EditText songLyric;
+    public String lang;
+    final String TAG = "L";
 
-
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-            homeBtn = homeBtn.findViewById(R.id.Home_btn);
-            homeBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Fragment newFragment = new Fragment();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Song_Lyric_fragment_Container, newFragment);
-                    transaction.addToBackStack(null);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view =inflater.inflate(R.layout.fragment_hindi__lyrik, container, false);
 
+        songTitle = (EditText)view.findViewById(R.id.titleSong);
+        songLyric = (EditText)view.findViewById(R.id.lyricSong);
 
-                    //  frameLayout = findViewById(R.id.main_frame_layout);
+         NextBtn3= view.findViewById(R.id.UploadBtnF);
+        parentFrameLayout = getActivity().findViewById(R.id.Song_Lyric_fragment_Container);
 
+        NextBtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 setFragment(new Hindi_Lyrik());
+                String TiSong = songTitle.getText().toString();
+                String LySongT = songLyric.getText().toString();
+                String LySongE = songLyric.getText().toString();
+                String LySongH = songLyric.getText().toString();
 
-                }
-            });
-        }
+                uploadSong(TiSong, LySongT, LySongE, LySongH);
+                //Toast.makeText(Hindi_Lyrik.this, "Successfully Uploaded", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Successfully Uploaded", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return view;
     }
+
+    private void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_from_left, R.anim.slideout_from_right);
+        fragmentTransaction.replace(parentFrameLayout.getId(), fragment);
+        fragmentTransaction.commit();
+
+    }
+    protected void uploadSong(String tS, String tL, String lySongE, String lySongH) {
+        // Create a new user with a first, middle, and last name
+        Map<String, Object> user = new HashMap<>();
+        String TiSong = songTitle.getText().toString();
+        String tS1 = tS;
+        String tL1 = tL;
+         String tL2 = lySongE;
+        String tL3 = lySongH;
+        user.put("Title", tS1);
+        user.put("Lyrik_T", tL1);
+          user.put("Lyrik_E", tL2);
+        user.put("Lyrik_H", tL3);
+
+
+// Add a new document with a generated ID
+
+        db.collection("Songs")
+                .document(TiSong)
+                .set(user)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "DocumentSnapshot added with ID: " + TiSong);
+
+
+                            Intent intent1 = new Intent(getActivity(), MainActivity.class);
+
+                            startActivity(intent1);
+                        } else {
+                            String error = task.getException().getMessage();
+                            Toast.makeText(getActivity(),"",Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
+
+
+    }
+
+
 
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
