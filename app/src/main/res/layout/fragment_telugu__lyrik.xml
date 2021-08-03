@@ -14,7 +14,7 @@
         android:id="@+id/lyricSong"
         android:layout_width="334dp"
         android:layout_height="518dp"
-        android:hint="Plase copy and paste Telugu song Lyrics"
+        android:hint="Please copy and paste Telugu song Lyrics"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

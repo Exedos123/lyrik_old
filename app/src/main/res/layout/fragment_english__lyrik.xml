@@ -13,7 +13,7 @@
         android:id="@+id/lyricSong"
         android:layout_width="334dp"
         android:layout_height="518dp"
-        android:hint="Plase copy and paste Telugu song Lyrics"
+        android:hint="Please copy and paste English song Lyrics"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,8 @@
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lyricSong"
-        app:layout_constraintVertical_bias="0.474" />
+        app:layout_constraintVertical_bias="0.474"
+        android:backgroundTint="#5E5252"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
