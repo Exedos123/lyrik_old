@@ -16,17 +16,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lyrika">
         <activity android:name=".MyAccountPage" />
-        <activity android:name=".RegisterActivity">
+
+        <activity android:name=".RegisterActivity"/>
+
+        <activity android:name=".SignUp" />
+        <activity android:name=".Song_View_page" />
+        <activity android:name=".Upload_Song" />
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUp" />
-        <activity android:name=".Song_View_page" />
-        <activity android:name=".Upload_Song" />
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

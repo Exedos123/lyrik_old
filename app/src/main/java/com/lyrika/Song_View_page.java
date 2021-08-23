@@ -102,6 +102,7 @@ public class Song_View_page extends AppCompatActivity {
                  DocumentSnapshot documentSnapshot = task.getResult();
 
                     titleView.setText(documentSnapshot.get("Title").toString());
+
                     lyrikView.setText(documentSnapshot.get("Lyrik_T").toString());
                     Toast.makeText(Song_View_page.this, "Successfully connected", Toast.LENGTH_SHORT).show();
                 } else {

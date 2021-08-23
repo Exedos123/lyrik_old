@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //get the details of the user
+
+
         signInDialog = new Dialog(MainActivity.this);
         signInDialog.setContentView(R.layout.sign_in_dialog);
         signInDialog.setCancelable(true);
@@ -328,15 +330,28 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.uploadBtn) {
-            Intent UploadIntent = new Intent(MainActivity.this, Upload_Song.class);
-            startActivity(UploadIntent);
+            if(currentUser == null) {
+                signInDialog.show();
+            }else {
+                // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+                Intent UploadIntent = new Intent(MainActivity.this, Upload_Song.class);
+                startActivity(UploadIntent);
+            }
+
+
 
             return true;
 
         }
         else if (id == R.id.AccountBtn) {
-            Intent UploadIntent = new Intent(MainActivity.this, MyAccountPage.class);
-            startActivity(UploadIntent);
+            if(currentUser == null) {
+                signInDialog.show();
+            }else {
+                // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+                Intent UploadIntent = new Intent(MainActivity.this, MyAccountPage.class);
+                startActivity(UploadIntent);
+            }
+
 
 
 
@@ -403,7 +418,8 @@ public class MainActivity extends AppCompatActivity {
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                     //HomeListModel homeListModel = documentSnapshot.toObject(HomeListModel.class);
                     // homeListModel.setSongTitle(documentSnapshot.getId());
-                    homeListModelList.add(new HomeListModel(documentSnapshot.get("Title").toString()));
+                    //homeListModelList.add(new HomeListModel(documentSnapshot.get("Title").toString()));
+                    homeListModelList.add(new HomeListModel(documentSnapshot.getId()));
                 }
                 homeListAdapter = new HomeListAdapter(homeListModelList);
                 songListRecyclerView.setAdapter(homeListAdapter);
@@ -417,6 +433,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+}
 
 }
