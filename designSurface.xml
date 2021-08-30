@@ -1,0 +1,75 @@
+<application>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/activity_product_details.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/activity_products_vone.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/category_layout.xml" value="0.11911231884057971" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/fragment_gallery.xml" value="0.14855072463768115" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/fragment_my_account.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/order_details_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/product_images_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/product_vone_item_layout.xml" value="0.11231884057971014" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/profile_datalayout.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/layout/sign_in_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/menu/activity_main_drawer.xml" value="0.18051282051282053" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/SajiniGarments/app/src/main/res/menu/main.xml" value="0.1287037037037037" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable-hdpi/ic_baseline_add_circle_outline_24.xml" value="0.15260416666666668" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable-hdpi/ic_baseline_person_24.xml" value="0.1984375" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable-hdpi/ic_baseline_settings_24.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.39375" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable/ic_outline_email_24.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable/profile_datalayout.xml" value="0.6666666666666666" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/drawable/search_btn_app_bar.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/font/robotoslabblack.xml" value="0.146875" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_app_bar.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_appbar.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_main.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_my_account_page.xml" value="0.14447463768115942" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_register.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_register2.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_signin_signup.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_signup.xml" value="0.11005434782608696" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_song_view_page.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_toolbar.xml" value="0.16927083333333334" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_user_upload_list.xml" value="0.14266304347826086" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/activity_viewsong.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/app_bar.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_english__lyrik.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_ftab1.xml" value="0.14719202898550723" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_ftab2.xml" value="0.14719202898550723" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_ftab3.xml" value="0.14719202898550723" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_hindi__lyrik.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_hinid__lyrik.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_my_account.xml" value="0.14266304347826086" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_reset_password.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_sign_in.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_sign_up.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/fragment_telugu__lyrik.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/home_list_layout.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/profile_datalayout.xml" value="0.11096014492753623" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/sign_in_dialog.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/toolbar.xml" value="0.11096014492753623" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/layout/upload_song.xml" value="0.1" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/menu/searchbar_menu_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1675925925925926" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/lyrika/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1675925925925926" />
+      </map>
+    </option>
+  </component>
+</application>
