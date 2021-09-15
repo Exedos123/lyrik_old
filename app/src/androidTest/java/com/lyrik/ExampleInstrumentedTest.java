@@ -1,4 +1,4 @@
-package com.lyrika;
+package com.lyrik;
 
 import android.content.Context;
 

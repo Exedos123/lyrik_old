@@ -1,4 +1,4 @@
-package com.lyrika;
+package com.lyrik;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

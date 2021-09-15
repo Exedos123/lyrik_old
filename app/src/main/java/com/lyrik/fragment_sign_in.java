@@ -1,4 +1,4 @@
-package com.lyrika;
+package com.lyrik;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,7 +27,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import static com.lyrika.RegisterActivity.onResetPasswordFragment;
+import static com.lyrik.RegisterActivity.onResetPasswordFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +55,8 @@ public class fragment_sign_in extends Fragment {
 
     private FirebaseAuth firebaseAuth;
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
+
+
 
     public static boolean disableCloseBtn = false;
 

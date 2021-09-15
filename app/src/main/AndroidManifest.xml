@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lyrika">
+    package="com.lyrik">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,13 +14,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Lyrika">
-        <activity android:name=".User_Upload_List"></activity>
-        <activity android:name=".Song_View_page"></activity>
-        <activity android:name=".MyAccountPage"></activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".Upload_Song"></activity>
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.Lyrik">
+        <activity android:name="com.lyrik.User_Upload_List"></activity>
+        <activity android:name="com.lyrik.Song_View_page"></activity>
+        <activity android:name="com.lyrik.MyAccountPage"></activity>
+        <activity android:name="com.lyrik.RegisterActivity"></activity>
+        <activity android:name="com.lyrik.Upload_Song"></activity>
+        <activity android:name="com.lyrik.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -42,8 +42,9 @@
             android:layout_toEndOf="@+id/Home_btn"
             android:layout_toRightOf="@+id/Home_btn"
             android:text="Lyrik"
-            android:textColor="#000000"
-            android:textSize="18sp"/>
+            android:textStyle="bold"
+            android:textColor="@color/logoColor"
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@+id/add_song_btn_app_bar"

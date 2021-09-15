@@ -5,37 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Song_View_page"
-    android:background="@drawable/sp2">
+    android:background="@color/white">
 
     <include
         android:id="@+id/include2"
         layout="@layout/toolbar" />
 
-    <TextView
-        android:id="@+id/SongTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="21sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include2" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
-        android:background="#F6276D"
+        android:background="@color/logoColor"
         android:elevation="05dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SongTitle"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
         app:tabTextColor="@color/white"
         tools:ignore="MissingConstraints">
 
@@ -60,49 +46,19 @@
 
     </com.google.android.material.tabs.TabLayout>
 
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/song_view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+
         app:layout_constraintTop_toBottomOf="@id/tabLayout"/>
 
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="110dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SongTitle">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/SongLyric"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:paddingBottom="20dp"
-                android:scrollbars="vertical"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/SongTitle"
-                app:layout_constraintVertical_bias="0.069" />
-        </LinearLayout>
 
-    </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

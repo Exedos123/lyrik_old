@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBECF0"
+    android:background="@color/colorAccent"
     tools:context=".MyAccountFragment">
 
 
@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
+            android:background="@color/white"
 
             android:orientation="vertical" >
             <include layout="@layout/profile_datalayout"/>
@@ -31,7 +31,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#BF2121"
+                android:backgroundTint="@color/logoColor"
                 android:text="Uploaded Songs"
                 android:textColor="@color/white"
                 android:textSize="12sp"
@@ -45,7 +45,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="#BF2121"
+                android:backgroundTint="@color/logoColor"
                 android:text="Sign Out"
                 android:textColor="@color/white"
                 android:textSize="12sp"

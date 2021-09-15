@@ -1,4 +1,4 @@
-package com.lyrika;
+package com.lyrik;
 
 public class UserListModel {
 }

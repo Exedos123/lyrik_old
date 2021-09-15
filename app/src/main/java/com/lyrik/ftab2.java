@@ -1,4 +1,4 @@
-package com.lyrika;
+package com.lyrik;
 
 import android.os.Bundle;
 
@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import static com.lyrika.DBqueries.firebaseFirestore;
+import static com.lyrik.DBqueries.firebaseFirestore;
 
 public class ftab2 extends Fragment {
 
@@ -64,7 +64,6 @@ public class ftab2 extends Fragment {
 
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });

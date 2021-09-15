@@ -1,4 +1,4 @@
-package com.lyrika;
+package com.lyrik;
 
 import android.os.Bundle;
 
@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import static com.lyrika.DBqueries.firebaseFirestore;
+import static com.lyrik.DBqueries.firebaseFirestore;
 
 
 public class ftab3 extends Fragment {
@@ -49,7 +49,7 @@ public class ftab3 extends Fragment {
                 if (task.isSuccessful()) {
                     DocumentSnapshot documentSnapshot = task.getResult();
 
-                    if ((documentSnapshot.getString("Lyrik_E")!=null) && (documentSnapshot.getString("Title"))!=null){
+                    if ((documentSnapshot.getString("Lyrik_H")!=null) && (documentSnapshot.getString("Title"))!=null){
 
                         titleH.setText(documentSnapshot.get("Title").toString());
 

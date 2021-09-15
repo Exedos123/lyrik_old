@@ -11,4 +11,5 @@
     <color name="colorAccent">#ffebecf0</color>
     <color name="red">#ffff0000</color>
     <color name="successGreen">#11a10c</color>
+    <color name="logoColor">#EE5638</color>
 </resources>

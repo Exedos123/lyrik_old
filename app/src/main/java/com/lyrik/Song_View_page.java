@@ -1,6 +1,5 @@
-package com.lyrika;
+package com.lyrik;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -11,29 +10,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import static com.lyrika.DBqueries.firebaseFirestore;
-import static com.lyrika.RegisterActivity.setSignUpFragment;
+import static com.lyrik.DBqueries.firebaseFirestore;
+import static com.lyrik.RegisterActivity.setSignUpFragment;
 
 public class Song_View_page extends AppCompatActivity {
 
     public TextView titleView;
-    private ImageView addProfileIcon, homeBtn, uploadBtn, accountBtn;
-    public TextView lyrikView,teluguL;
+    private ImageView homeBtn, uploadBtn, accountBtn;
+    public TextView lyrikView;
     final String TAG = "L";
     private Toolbar toolbar;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -50,8 +44,7 @@ public class Song_View_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_view_page);
-        titleView = (TextView) findViewById(R.id.SongTitle);
-        lyrikView = (TextView) findViewById(R.id.SongLyric);
+
 
 
 

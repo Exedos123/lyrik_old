@@ -1,4 +1,4 @@
-package com.lyrika;
+package com.lyrik;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,8 +24,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.lyrika.DBqueries.firebaseFirestore;
 
 public class User_Upload_List extends AppCompatActivity {
 
